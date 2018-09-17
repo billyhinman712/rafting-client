@@ -9,7 +9,7 @@ class Comment extends Component {
     this.state = {
       firstName: '',
       lastName:'',
-      stars:'',
+      star:'',
       description:''
     };
   }

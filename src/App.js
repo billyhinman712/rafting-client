@@ -52,7 +52,8 @@ class App extends Component {
       console.log('No token was found');
       localStorage.removeItem('mernToken');
       this.setState({
-        user: null
+        user: null,
+        booking: null
       });
     }
   }
@@ -75,6 +76,9 @@ class App extends Component {
             } />
             <Route path="/charge" component={Charge} />
             <Route path="/comment" component={Comment} />
+            <Route path="/booking" component={
+              () => (<Booking book={this.state.booking}, user={this.state.user} />)
+            } />
           </div>
         </Router>
         <Footer />
