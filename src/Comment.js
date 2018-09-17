@@ -18,6 +18,8 @@ class Comment extends Component {
 
   handleLastNameChange = (e) => { this.setState({ lastName: e.target.value }); }
 
+  handleStarChange = (e) => { this.setState({ star: e.target.value }); }
+
   handleDescriptoinChange = (e) => { this.setState({ description: e.target.value }); }
 
   handleSubmit = (e) => {
@@ -44,6 +46,10 @@ class Comment extends Component {
               <input name="lastName" placeholder="What is your last name?" value={this.state.lastName} onChange={this.handleLastNameChange} />
             </div>
             <br></br>
+            <br></br>
+            <div>
+              <input name="star" type="number" value={this.state.star} onChange={this.handleStarChange} />
+            </div>
             <div>
               <input name="description" type="text" value={this.state.description} onChange={this.handleDescriptoinChange} />
             </div>

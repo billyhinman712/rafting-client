@@ -2,20 +2,28 @@ import React, { Component } from 'react';
 
 class Booking extends Component {
   render() {
+  	const appointments = this.props.book.filter(appointment => appointment.userId === this.props.user._id).forEach( f => {
+  		return (
+	          <div>
+	            <h4>River Name: {f.name}</h4>
+	            <h4>Date: {f.date}</h4>
+	            <h4>Time: {f.time}</h4>
+	            <h4>Cost: {f.cost}</h4>
+          	</div>
+          );
+          });
     if(this.props.user){
       return (
+      	<div>
           <div>
           	<h2>{this.props.user.firstName}'s booking list</h2>
           </div>
-          {this.book}.filter(appointment => appointment.userId === user._id)forEach( appointment => {
-	          <div>
-	            <h4>River Name: appointment.name</h4>
-	            <h4>Date: appointment.date</h4>
-	            <h4>Time: appointment.time</h4>
-	            <h4>Cost: appointment.cost</h4>
-          	</div>
           <br></br>
-        });
+          <div>
+          	{appointments}
+          </div>
+        </div>
+          
         );
     }
     return(

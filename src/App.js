@@ -11,18 +11,21 @@ import Profile from './Profile';
 import Signup from './auth/Signup';
 import Charge from './Charge';
 import Comment from './Comment';
+import Booking from './Booking';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: null
+      user: '_id = 1',
+      booking: ['1', '2', '3']
     }
   }
 
   componentDidMount = () => {
     console.log('component did mount!');
     this.getUser();
+    this.getBooking();
   }
 
   getUser = () => {
@@ -52,10 +55,27 @@ class App extends Component {
       console.log('No token was found');
       localStorage.removeItem('mernToken');
       this.setState({
-        user: null,
-        booking: null
+        user: null
       });
     }
+  }
+
+  getBooking = () => {
+    axios.post(SERVER_URL + '/booking')
+    .then(response => {
+        console.log('SUCCESS', response);
+        this.setState({
+          booking: response.data.booking
+        });
+      })
+      .catch(err => {
+        console.log('ERROR', err);
+        console.log('response', err.response);
+        this.setState({
+          booking: null
+        });
+
+    })
   }
 
   render() {
@@ -77,7 +97,7 @@ class App extends Component {
             <Route path="/charge" component={Charge} />
             <Route path="/comment" component={Comment} />
             <Route path="/booking" component={
-              () => (<Booking book={this.state.booking}, user={this.state.user} />)
+              () => (<Booking book={this.state.booking} user={this.state.user} />)
             } />
           </div>
         </Router>
