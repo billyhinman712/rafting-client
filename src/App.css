@@ -5,7 +5,7 @@ nav {
   padding: 10px 0;
 }
 
-nav a {
+a {
   margin: 10px;
   text-decoration: none;
   font-size: 20px;
@@ -13,7 +13,7 @@ nav a {
   cursor: pointer;
 }
 
-nav a:hover {
+a:hover {
   color: hotpink;
 }
 
