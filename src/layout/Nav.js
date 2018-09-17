@@ -17,6 +17,8 @@ class Nav extends Component {
           <span>
             <a onClick={this.handleLogout}>Logout</a>
             <Link to="/profile">Profile</Link>
+            <Link to="/bookings">bookings</Link>
+            <Link to="/comment">Leave a Comment</Link>
           </span>
         );
     }
