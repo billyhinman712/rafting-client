@@ -7,13 +7,19 @@ class Signup extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: '',
+      firstName: '',
+      lastName:'',
+      dob:'',
       email: '',
       password: ''
     };
   }
 
-  handleNameChange = (e) => { this.setState({ name: e.target.value }); }
+  handleFirstNameChange = (e) => { this.setState({ firstName: e.target.value }); }
+
+  handleLastNameChange = (e) => { this.setState({ lastName: e.target.value }); }
+
+  handleDobChange = (e) => { this.setState({ dob: e.target.value }); }
 
   handleEmailChange = (e) => { this.setState({ email: e.target.value }); }
 
@@ -41,10 +47,16 @@ class Signup extends Component {
     }
     return(
         <div>
-          <h2>Signup as a new user</h2>
+          <h2>Signup To Book With Us!</h2>
           <form onSubmit={this.handleSubmit}>
             <div>
-              <input name="Name" placeholder="What is your name?" value={this.state.name} onChange={this.handleNameChange} />
+              <input name="firstName" placeholder="What is your first name?" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+            </div>
+            <div>
+              <input name="lastName" placeholder="What is your last name?" value={this.state.lastName} onChange={this.handleLastNameChange} />
+            </div>
+            <div>
+              <input name="dob" placeholder="What is your birthdate?" value={this.state.dob} onChange={this.handleDobChange} />
             </div>
             <div>
               <input name="Email" placeholder="What is your email?" value={this.state.email} onChange={this.handleEmailChange} />
