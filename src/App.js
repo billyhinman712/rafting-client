@@ -17,7 +17,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: '_id = 1',
+      user: null,
       booking: ['1', '2', '3']
     }
   }

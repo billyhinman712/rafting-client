@@ -41,19 +41,15 @@ class Comment extends Component {
             <div>
               <input name="firstName" placeholder="What is your first name?" value={this.state.firstName} onChange={this.handleFirstNameChange} />
             </div>
-            <br></br>
             <div>
               <input name="lastName" placeholder="What is your last name?" value={this.state.lastName} onChange={this.handleLastNameChange} />
             </div>
-            <br></br>
-            <br></br>
             <div>
               <input name="star" type="number" value={this.state.star} onChange={this.handleStarChange} />
             </div>
             <div>
               <input name="description" type="text" value={this.state.description} onChange={this.handleDescriptoinChange} />
             </div>
-            <br></br>
             <input type="submit" value="Leave Comment!" className="button" />
           </form>
         </div>
