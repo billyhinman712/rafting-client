@@ -16,7 +16,9 @@ class Show extends Component {
 	}
 
 	handleChange = (e) => {
-		
+		this.setState({ e.target.name: e.target.value });
+		this.setState({ userId: this.props.user.id });
+		this.setState({ name: this.props.river.name });
 	}
 
 	handleBooking = () => {
