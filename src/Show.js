@@ -16,13 +16,20 @@ class Show extends Component {
 	}
 
 	handleChange = (e) => {
-		this.setState({ e.target.name: e.target.value });
-		this.setState({ userId: this.props.user.id });
-		this.setState({ name: this.props.river.name });
+		this.setState({ 
+		 [e.target.name]: e.target.value,
+		 userId: this.props.user.id,
+		 name: 'help'
+		});
 	}
 
-	handleBooking = () => {
-		axios.post(SERVER_URL + '/book', this.state)
+	handleBooking = (e) => {
+		axios.post(SERVER_URL + '/book', {
+			date: this.state.date,
+			time: this.state.time,
+			userId: this.props.user.id,
+			name: e.target.name
+		})
     .then(response => {
         console.log('SUCCESS', response);
         this.setState({redirect: true});
@@ -39,15 +46,17 @@ class Show extends Component {
   	const rivers = this.props.river.map( (r, i) => {
   		return(
   			<div>
-  			<h2>{r.name}</h2>
-  			<img src={r.image} alt="river"></img>
-  			<p>{r.content}</p>
-  			<p>{r.description}</p>
-  			<label>Day</label>
-  			<input name="date" type="date" OnChange={handleChange}></input>
-  			<label>Time</label>
-  			<input name="time" type="time" OnChange={handleChange}></input>
-  			<button onClick={this.handleBooking}>BOOK IT!</button>
+  				<h2>{r.name}</h2>
+  				<img src={r.image} alt="river"></img>
+  				<p>{r.content}</p>
+  				<p>{r.description}</p>
+  				<form name={r.name} onSubmit={this.handleBooking}>
+	  				<label>Day</label>
+	  				<input name="date" type="date" OnChange={this.handleChange}></input>
+	  				<label>Time</label>
+	  				<input name="time" type="time" OnChange={this.handleChange}></input>
+	  				<input type="submit" value="BOOK IT!"/>
+	  			</form>
   			</div>
   			);
   	});
