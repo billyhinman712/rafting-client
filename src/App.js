@@ -124,7 +124,7 @@ class App extends Component {
               () => (<Booking book={this.state.booking} user={this.state.user} />)
             } />
             <Route path="/show" component={
-              () => (<Show river={this.state.rivers} />)
+              () => (<Show river={this.state.rivers} user={this.state.user} />)
             } />
             <Route path="/failed" component={Failed} />
           </div>

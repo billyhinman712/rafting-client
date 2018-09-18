@@ -7,12 +7,20 @@ class Show extends Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			redirect: null
+			redirect: null,
+			name:'',
+			date:'',
+			time:'',
+			userId:''
 		}
 	}
 
+	handleChange = (e) => {
+		
+	}
+
 	handleBooking = () => {
-		axios.post(SERVER_URL + '/book')
+		axios.post(SERVER_URL + '/book', this.state)
     .then(response => {
         console.log('SUCCESS', response);
         this.setState({redirect: true});
@@ -34,9 +42,9 @@ class Show extends Component {
   			<p>{r.content}</p>
   			<p>{r.description}</p>
   			<label>Day</label>
-  			<input type="date"></input>
+  			<input name="date" type="date" OnChange={handleChange}></input>
   			<label>Time</label>
-  			<input type="time"></input>
+  			<input name="time" type="time" OnChange={handleChange}></input>
   			<button onClick={this.handleBooking}>BOOK IT!</button>
   			</div>
   			);
