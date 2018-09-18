@@ -45,7 +45,7 @@ class Comment extends Component {
               <input name="lastName" placeholder="What is your last name?" value={this.state.lastName} onChange={this.handleLastNameChange} />
             </div>
             <div>
-              <input name="star" type="number" value={this.state.star} onChange={this.handleStarChange} />
+              <input name="star" placeholder="How many stars? 1-5" type="number" value={this.state.star} onChange={this.handleStarChange} />
             </div>
             <div>
               <input name="description" type="text" value={this.state.description} onChange={this.handleDescriptoinChange} />

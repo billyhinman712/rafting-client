@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Booking extends Component {
   render() {
-  	const appointments = this.props.book.filter(appointment => appointment.userId === this.props.user._id).forEach( f => {
+  	const appointments = this.props.book.filter(appointment => appointment.userId === this.props.user._id).map( f => {
   		return (
 	          <div>
 	            <h4>River Name: {f.name}</h4>
@@ -18,7 +18,6 @@ class Booking extends Component {
           <div>
           	<h2>{this.props.user.firstName}'s booking list</h2>
           </div>
-          <br></br>
           <div>
           	{appointments}
           </div>

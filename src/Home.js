@@ -52,6 +52,11 @@ class Home extends Component {
   	});
     return(
     	<div>
+    		<div>
+	    		<h2>About Us</h2>
+	    		<img className="left" src="https://wetplanetwhitewater.com/wp-content/uploads/2015/03/15049009543_5f07e94e47_o-1.jpg"></img>
+	    		<p>We guide people down several riversof all difficulties. We spend about 4 hours ridding down the river. We provide the raft, safty equipment and oars. All you need to bring is a possitive, can do attitude!</p>
+	    	</div>
         <div>{rivers}</div>
         <button onClick={this.handleShowReview}>Reviews</button>
         { this.state.showReview ? <Review comment={this.state.comment}/> : null }
