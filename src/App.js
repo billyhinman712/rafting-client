@@ -19,8 +19,8 @@ class App extends Component {
     super(props);
     this.state = {
       user: null,
-      booking: null,
-      rivers: ['1', '2']
+      booking: [],
+      rivers: []
     }
   }
 
@@ -75,7 +75,7 @@ class App extends Component {
         console.log('ERROR', err);
         console.log('response', err.response);
         this.setState({
-          booking: null
+          booking: []
         });
 
     });
@@ -93,7 +93,7 @@ class App extends Component {
         console.log('ERROR', err);
         console.log('response', err.response);
         this.setState({
-          rivers: ['1', '2']
+          rivers: []
         });
 
     });

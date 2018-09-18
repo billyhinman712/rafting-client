@@ -8,7 +8,8 @@ class Home extends Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			comment: null
+			comment: null,
+			redirect: false
 		}
 	}
 
@@ -29,6 +30,7 @@ class Home extends Component {
         console.log('response', err.response);
         this.setState({
           comment: null,
+          redirect: false,
           showReveiw: false
         });
 
@@ -42,8 +44,8 @@ class Home extends Component {
 	}
 
 	handleShowRiver = () => {
-		const river = this.props.river;
-		<Redirect to="/show" />
+		console.log("handling show river");
+		this.setState({redirect: true}); 
 	}
 
   render() {
@@ -62,6 +64,11 @@ class Home extends Component {
   			</div>
   			);
   	});
+
+		if(this.state.redirect){
+			return <Redirect to="/show" />;
+		}
+
     return(
     	<div>
     		<div>
