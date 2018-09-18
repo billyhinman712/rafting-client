@@ -1,4 +1,8 @@
 /* CUSTOM STYLES */
+div{
+  padding: 0 0 5px 0;
+}
+
 nav {
   width: 100%;
   background-color: #555;
@@ -42,9 +46,12 @@ a:hover {
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 300px;
   padding: 20px;
   color: white;
+  background-image: url("http://www.whitewaterconnection.com/photos/cs5.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .App-title {

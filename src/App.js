@@ -18,7 +18,8 @@ class App extends Component {
     super(props);
     this.state = {
       user: null,
-      booking: ['1', '2', '3']
+      booking: null,
+      rivers: null,
     }
   }
 
@@ -26,6 +27,7 @@ class App extends Component {
     console.log('component did mount!');
     this.getUser();
     this.getBooking();
+    this.getRivers();
   }
 
   getUser = () => {
@@ -75,7 +77,25 @@ class App extends Component {
           booking: null
         });
 
-    })
+    });
+  }
+
+  getRivers = () => {
+    axios.post(SERVER_URL + '/rivers')
+    .then(response => {
+        console.log('SUCCESS', response);
+        this.setState({
+          rivers: response.data.rivers
+        });
+      })
+      .catch(err => {
+        console.log('ERROR', err);
+        console.log('response', err.response);
+        this.setState({
+          rivers: null
+        });
+
+    });
   }
 
   render() {
@@ -84,7 +104,9 @@ class App extends Component {
         <Router>
           <div className="container">
             <Nav user={this.state.user} updateUser={this.getUser} />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={
+              () => (<Home river={this.state.rivers} />)
+            } />
             <Route path="/login" component={
               () => (<Login user={this.state.user} updateUser={this.getUser} />)
             } />
