@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SERVER_URL from './constants/server';
+import { Redirect } from 'react-router-dom';
 
 class Show extends Component {
+	constructor(props){
+		super(props);
+		this.state ={
+			redirect: null
+		}
+	}
 
 	handleBooking = () => {
 		axios.post(SERVER_URL + '/book')
     .then(response => {
         console.log('SUCCESS', response);
+        this.setState({redirect: true});
       })
       .catch(err => {
         console.log('ERROR', err);
         console.log('response', err.response);
+        this.setState({redirect: false});
       });
   	
 	}
@@ -32,6 +41,12 @@ class Show extends Component {
   			</div>
   			);
   	});
+
+  	if(this.state.redirect === true){
+  		return <Redirect to="/finish" />
+  	} else if(this.state.redirect === false){
+  		return <Redirect to="/failed" />
+  	}
       return (
           <div>
             <h1>River Info Page</h1>

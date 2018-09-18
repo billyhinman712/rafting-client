@@ -9,6 +9,7 @@ class Home extends Component {
 		super(props);
 		this.state ={
 			comment: null,
+			showReveiw: false,
 			redirect: false
 		}
 	}
@@ -29,9 +30,7 @@ class Home extends Component {
         console.log('ERROR', err);
         console.log('response', err.response);
         this.setState({
-          comment: null,
-          redirect: false,
-          showReveiw: false
+          comment: null
         });
 
     });

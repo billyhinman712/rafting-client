@@ -13,6 +13,7 @@ import Charge from './Charge';
 import Comment from './Comment';
 import Booking from './Booking';
 import Show from './Show';
+import Failed from './Failed';
 
 class App extends Component {
   constructor(props){
@@ -125,6 +126,7 @@ class App extends Component {
             <Route path="/show" component={
               () => (<Show river={this.state.rivers} />)
             } />
+            <Route path="/failed" component={Failed} />
           </div>
         </Router>
         <Footer />
