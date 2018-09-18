@@ -34,6 +34,14 @@ a:hover {
   font-size: 11px;
 }
 
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
 /* DEFAULT STYLES */
 .App {
   text-align: center;

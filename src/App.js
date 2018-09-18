@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       user: null,
       booking: null,
-      rivers: null,
+      rivers: ['1', '2']
     }
   }
 
@@ -92,7 +92,7 @@ class App extends Component {
         console.log('ERROR', err);
         console.log('response', err.response);
         this.setState({
-          rivers: null
+          rivers: ['1', '2']
         });
 
     });
