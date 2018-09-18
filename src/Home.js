@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SERVER_URL from './constants/server';
+import { Redirect } from 'react-router-dom';
 import Review from './Review';
 
 class Home extends Component {
@@ -40,13 +41,24 @@ class Home extends Component {
 		});
 	}
 
+	handleShowRiver = () => {
+		const river = this.props.river;
+		<Redirect to="/show" />
+	}
+
   render() {
   	const rivers = this.props.river.map( (r, i) => {
+  		// if(i%2===0) {
+  		// 	return //some stuff
+  		// } else {
+  		// 	return // other stuff
+  		// }
   		return (
   			<div>
   			<h2>{r.name}</h2>
+  			<img src={r.image} alt="river"></img>
   			<p>{r.content}</p>
-  			<img src={r.image} className={i%2 === 0 ? 'right' : 'left'} alt="river"></img>
+  			<button onClick={this.handleShowRiver}>Learn More</button>
   			</div>
   			);
   	});
@@ -55,11 +67,14 @@ class Home extends Component {
     		<div>
 	    		<h2>About Us</h2>
 	    		<img className="left" src="https://wetplanetwhitewater.com/wp-content/uploads/2015/03/15049009543_5f07e94e47_o-1.jpg"></img>
-	    		<p>We guide people down several riversof all difficulties. We spend about 4 hours ridding down the river. We provide the raft, safty equipment and oars. All you need to bring is a possitive, can do attitude!</p>
+	    		<p>We guide people down several rivers of all difficulties. We spend about 4 hours ridding down the river. We provide the raft, safty equipment and oars. All you need to bring is a possitive, can do attitude!</p>
 	    	</div>
-        <div>{rivers}</div>
-        <button onClick={this.handleShowReview}>Reviews</button>
-        { this.state.showReview ? <Review comment={this.state.comment}/> : null }
+	    	<div>
+		    	<h2>Rivers We Explore</h2>
+	        {rivers}
+	        <button onClick={this.handleShowReview}>Reviews</button>
+	        { this.state.showReview ? <Review comment={this.state.comment}/> : null }
+	       </div>
       </div>
       );
   }

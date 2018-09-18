@@ -12,6 +12,7 @@ import Signup from './auth/Signup';
 import Charge from './Charge';
 import Comment from './Comment';
 import Booking from './Booking';
+import Show from './Show';
 
 class App extends Component {
   constructor(props){
@@ -116,10 +117,13 @@ class App extends Component {
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)
             } />
-            <Route path="/charge" component={Charge} />
+            <Route path="/finish" component={Charge} />
             <Route path="/comment" component={Comment} />
             <Route path="/booking" component={
               () => (<Booking book={this.state.booking} user={this.state.user} />)
+            } />
+            <Route path="/show" component={
+              () => (<Show river={this.state.rivers} />)
             } />
           </div>
         </Router>

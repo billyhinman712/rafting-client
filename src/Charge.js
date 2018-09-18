@@ -7,10 +7,15 @@ class Charge extends Component {
         <div>
           <h3>Thank You For Booking With River Raders</h3>
           <span>
-            <Link to="/">Home</Link>
-            <br></br>
-            <br></br>
-            <Link to="/comments">Leave a Comment</Link>
+            <div>
+              <Link to="/">Home</Link>
+            </div>
+            <div>
+              <Link to="/comments">Leave a Comment</Link>
+            </div>
+            <div>
+              <Link to="/booking">Booking list</Link>
+            </div>
           </span>
         </div>
       );
